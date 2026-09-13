@@ -1,864 +1,642 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fruit Bats Football – Flag NFL West London</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap">
-    <style>
-        :root {
-            /* Colors */
-            --bat-red: #C1272D;
-            --bat-blue: #1a3a52;
-            --bat-electric: #00A0DF;
-            --cream: #F8F7F4;
-            --dark: #1A1A1A;
-            --light-gray: #E8E6E1;
-            --text-primary: #1A1A1A;
-            --text-secondary: #5A5A5A;
-            --border-color: #D4D0C8;
-
-            /* Typography */
-            --type-scale: 1.125;
-            --base-font-size: 16px;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root:not([data-theme="light"]) {
-                --cream: #1A1A1A;
-                --dark: #F8F7F4;
-                --light-gray: #2A2A2A;
-                --text-primary: #F8F7F4;
-                --text-secondary: #B8B8B8;
-                --border-color: #3A3A3A;
-            }
-        }
-
-        :root[data-theme="dark"] {
-            --cream: #1A1A1A;
-            --dark: #F8F7F4;
-            --light-gray: #2A2A2A;
-            --text-primary: #F8F7F4;
-            --text-secondary: #B8B8B8;
-            --border-color: #3A3A3A;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: var(--cream);
-            color: var(--text-primary);
-            line-height: 1.6;
-            font-size: var(--base-font-size);
-        }
-
-        /* Header & Navigation */
-        header {
-            background: var(--cream);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1.5rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-family: "Syne", sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--bat-red);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-        }
-
-        nav-links {
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--bat-electric);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-left: 2rem;
-            padding-left: 2rem;
-            border-left: 1px solid var(--border-color);
-        }
-
-        .social-links a {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--light-gray);
-            border-radius: 50%;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .social-links a:hover {
-            background: var(--bat-electric);
-            color: var(--cream);
-        }
-
-        /* Hero Section */
-        .hero {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .hero-content h1 {
-            font-family: "Syne", sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--bat-red);
-        }
-
-        .hero-content .tagline {
-            font-size: 1.25rem;
-            color: var(--bat-blue);
-            font-weight: 600;
-            margin-bottom: 2rem;
-            letter-spacing: 0.5px;
-        }
-
-        .hero-content p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            max-width: 90%;
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .cta-button {
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-            display: inline-block;
-            font-family: "Syne", sans-serif;
-        }
-
-        .cta-primary {
-            background: var(--bat-red);
-            color: white;
-        }
-
-        .cta-primary:hover {
-            background: var(--bat-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-        }
-
-        .cta-secondary {
-            background: var(--bat-electric);
-            color: white;
-        }
-
-        .cta-secondary:hover {
-            background: var(--bat-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-        }
-
-        .hero-visual {
-            position: relative;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Responsive Hero */
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 2rem 1.5rem;
-            }
-
-            .hero-visual {
-                order: -1;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .social-links {
-                margin-left: 0;
-                padding-left: 0;
-                border-left: none;
-            }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-family: "Syne", sans-serif;
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 4px solid var(--bat-electric);
-            display: inline-block;
-        }
-
-        .section-intro {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            line-height: 1.8;
-        }
-
-        /* Achievement Stats */
-        .achievements {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .achievement-card {
-            background: var(--light-gray);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--bat-red);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .achievement-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-        }
-
-        .achievement-card h3 {
-            font-family: "Syne", sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--bat-red);
-            margin-bottom: 0.5rem;
-        }
-
-        .achievement-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .about-content h3 {
-            font-family: "Syne", sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--bat-blue);
-            margin-bottom: 1rem;
-        }
-
-        .about-content p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .about-visual {
-            background: linear-gradient(135deg, var(--bat-red) 0%, var(--bat-electric) 100%);
-            height: 300px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 600;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Teams Section */
-        .teams-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-card {
-            background: var(--light-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .team-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 32px rgba(0,0,0,0.12);
-        }
-
-        .team-header {
-            background: var(--bat-blue);
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .team-header h3 {
-            font-family: "Syne", sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .age-group {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            letter-spacing: 0.5px;
-        }
-
-        .team-body {
-            padding: 2rem;
-        }
-
-        .team-body p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .team-cta {
-            margin-top: 1.5rem;
-        }
-
-        .team-cta a {
-            color: var(--bat-electric);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.2s;
-        }
-
-        .team-cta a:hover {
-            gap: 1rem;
-        }
-
-        /* Success Section Background */
-        .success-section {
-            background: var(--bat-blue);
-            color: white;
-        }
-
-        .success-section h2 {
-            color: var(--bat-electric);
-            border-bottom-color: var(--bat-electric);
-        }
-
-        .success-section .section-intro {
-            color: rgba(255,255,255,0.8);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--light-gray);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .contact-info h3 {
-            font-family: "Syne", sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--bat-blue);
-        }
-
-        .contact-info p {
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-info a {
-            color: var(--bat-electric);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--bat-blue);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-family: "Inter", sans-serif;
-            font-size: 0.95rem;
-            background: var(--cream);
-            color: var(--text-primary);
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--bat-electric);
-            box-shadow: 0 0 0 3px rgba(0, 160, 223, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        @media (max-width: 768px) {
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: var(--cream);
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--bat-electric);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Utility Classes */
-        .accent-text {
-            color: var(--bat-red);
-        }
-
-        .highlight-text {
-            color: var(--bat-electric);
-            font-weight: 600;
-        }
-
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Reduced motion support */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fruit Bats Football</title>
+<meta name="description" content="Fruit Bats: reigning British National Champions in youth flag football. U11, U14 and U17 squads for girls and boys in Ealing, West London. First session free.">
+<link rel="icon" href="assets/crest-192.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800;900&display=swap">
+<style>
+  :root {
+    --ink: #0B100D;
+    --ink-2: #111814;
+    --line: #26302A;
+    --chalk: #F2F1EC;
+    --muted: #A3ADA6;
+    --red: #E3262E;
+    --red-deep: #B81C23;
+    --astro: #15301F;
+    --astro-2: #193823;
+
+    --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+    --label: "Barlow Condensed", "Arial Narrow", sans-serif;
+
+    --wrap: 1240px;
+    --gutter: clamp(20px, 4vw, 48px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--chalk);
+    font: 400 1.0625rem/1.65 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3 { margin: 0; font-family: var(--display); text-transform: uppercase; text-wrap: balance; }
+  p { margin: 0; }
+  :focus-visible { outline: 3px solid var(--chalk); outline-offset: 3px; }
+
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+  .red { color: var(--red); }
+  .label {
+    font: 600 0.9rem/1 var(--label);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .label-red { color: var(--red); }
+  .h2 { font-size: clamp(2.6rem, 5vw, 4.4rem); font-weight: 900; line-height: 0.92; letter-spacing: 0.005em; }
+  .prose { display: grid; gap: 1.1em; max-width: 60ch; color: #D9DCD6; }
+  .prose strong { color: var(--chalk); font-weight: 600; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.6em;
+    padding: 15px 24px;
+    font: 700 1.05rem/1 var(--label);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border: 2px solid transparent; cursor: pointer;
+    transition: background-color .18s, color .18s, border-color .18s, transform .18s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-red:hover { background: var(--red-deep); }
+  .btn-ghost { border-color: rgba(242,241,236,.4); color: var(--chalk); background: transparent; }
+  .btn-ghost:hover { border-color: var(--chalk); }
+
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11,16,13,.86);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; gap: 32px; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
+  .brand img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px var(--red); }
+  .brand-name { font: 900 1.55rem/0.9 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+  .brand-name small { display: block; margin-top: 3px; font: 600 .72rem/1 var(--label); letter-spacing: .18em; color: var(--muted); }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a { font: 600 1rem/1 var(--label); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: #CDD2CC; }
+  .nav-links a:hover { color: var(--chalk); }
+  .nav .btn { padding: 12px 18px; font-size: .95rem; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(60% 70% at 78% 30%, rgba(227,38,46,.16), transparent 70%),
+      radial-gradient(40% 50% at 95% 0%, rgba(242,241,236,.10), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: clamp(24px, 4vw, 56px);
+    padding-top: clamp(40px, 7vw, 88px); padding-bottom: clamp(40px, 6vw, 72px);
+  }
+  .hero-copy { display: grid; gap: 26px; }
+  .hero h1 { font-size: clamp(3.1rem, 7.4vw, 6.9rem); font-weight: 900; line-height: .88; letter-spacing: -.005em; }
+  .hero h1 .line { display: block; }
+  .hero .lede { max-width: 50ch; font-size: 1.2rem; color: #D5D9D3; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .facts {
+    display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0;
+    margin: 8px 0 0; border-top: 1px solid var(--line);
+  }
+  .facts div { padding: 16px 28px 0 0; margin-right: 28px; border-right: 1px solid var(--line); }
+  .facts div:last-child { border-right: 0; margin-right: 0; }
+  .facts dt { font: 800 2.4rem/1 var(--display); text-transform: uppercase; font-variant-numeric: tabular-nums; }
+  .facts dd { margin: 6px 0 0; font: 600 .82rem/1.2 var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .hero-crest { margin: 0; position: relative; }
+  .hero-crest img {
+    width: 100%; aspect-ratio: 1076 / 830; object-fit: cover;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent), linear-gradient(transparent, #000 7%, #000 90%, transparent);
+    -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent), linear-gradient(transparent, #000 7%, #000 90%, transparent);
+            mask-composite: intersect;
+  }
+
+  /* Ribbon board */
+  .ribbon { background: var(--red); color: #fff; overflow: hidden; border-block: 2px solid #0006; }
+  .ribbon-track { display: flex; width: max-content; animation: ribbon 48s linear infinite; }
+  .ribbon ul { display: flex; margin: 0; padding: 0; list-style: none; }
+  .ribbon li {
+    display: flex; align-items: center; gap: 22px; padding: 14px 22px 14px 0;
+    font: 800 1.35rem/1 var(--display); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap;
+  }
+  .ribbon li::after {
+    content: ""; width: 16px; height: 22px; background: #fff; opacity: .9;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%);
+  }
+  @keyframes ribbon { to { transform: translateX(-50%); } }
+
+  /* Sections */
+  .block { padding-block: clamp(72px, 10vw, 128px); }
+  .head { display: grid; gap: 18px; margin-bottom: clamp(36px, 5vw, 56px); }
+  .head p { max-width: 56ch; color: var(--muted); font-size: 1.125rem; }
+
+  /* Club */
+  .club-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+  .club-photo { margin: 0; position: relative; }
+  .club-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; }
+  .club-photo figcaption, .cap {
+    margin-top: 10px; font: 500 .9rem/1.3 var(--label); letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+  }
+  .club-copy { display: grid; gap: 28px; }
+  .pull {
+    padding-left: 22px; border-left: 4px solid var(--red);
+    font: 800 clamp(1.6rem, 2.6vw, 2.2rem)/1.05 var(--display); text-transform: uppercase;
+  }
+
+  .band { position: relative; margin: 0; }
+  .band img { width: 100%; height: clamp(320px, 46vw, 640px); object-fit: cover; object-position: 50% 55%; }
+  .band figcaption {
+    position: absolute; inset: auto 0 0 0; padding: 80px var(--gutter) 28px;
+    background: linear-gradient(transparent, rgba(11,16,13,.92));
+  }
+  .band figcaption span { display: block; max-width: var(--wrap); margin: 0 auto; font: 800 clamp(1.8rem, 3.6vw, 3rem)/1 var(--display); text-transform: uppercase; }
+
+  /* Honours */
+  .honours-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+  .board { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
+  .board li {
+    display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; align-items: center;
+    padding: 22px 0; border-top: 1px solid var(--line);
+  }
+  .board h3 { font-size: clamp(1.6rem, 2.8vw, 2.35rem); font-weight: 800; line-height: 1; }
+  .board p { grid-column: 1; color: var(--muted); font-size: 1rem; }
+  .chip {
+    grid-row: 1 / span 2; grid-column: 2;
+    padding: 7px 12px; border: 2px solid currentColor;
+    font: 700 .85rem/1 var(--label); letter-spacing: .14em; text-transform: uppercase; font-variant-numeric: tabular-nums;
+  }
+  .chip-red { color: var(--red); }
+  .chip-chalk { color: #CDD2CC; }
+  .next { display: grid; gap: 18px; position: sticky; top: 100px; }
+  .next img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .next h3 { font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 900; line-height: .95; }
+  .next p { color: #D5D9D3; }
+
+  /* Squads on the astro */
+  .astro {
+    background:
+      repeating-linear-gradient(90deg, var(--astro) 0 140px, var(--astro-2) 140px 280px);
+    border-block: 4px solid rgba(242,241,236,.85);
+  }
+  .astro .head p { color: #C5CFC7; }
+  .squads { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .squad { display: grid; gap: 14px; align-content: start; padding: 8px clamp(18px, 3vw, 40px) 8px; border-left: 2px dashed rgba(242,241,236,.4); }
+  .squad:first-child { border-left: 0; padding-left: 0; }
+  .shirt { display: flex; align-items: flex-start; gap: 6px; line-height: .8; }
+  .shirt .u { font: 900 2.2rem/1 var(--display); color: var(--red); margin-top: .5rem; }
+  .shirt .n {
+    font: 900 clamp(7rem, 13vw, 11.5rem)/.8 var(--display);
+    color: transparent; -webkit-text-stroke: 3px var(--chalk); font-variant-numeric: tabular-nums;
+  }
+  .squad h3 { font-size: 2rem; font-weight: 800; line-height: 1; }
+  .ages { font: 700 1rem/1 var(--label); letter-spacing: .14em; text-transform: uppercase; color: #fff; }
+  .squad p { color: #D2DAD4; max-width: 34ch; }
+  .squad a { justify-self: start; font: 700 1rem/1 var(--label); letter-spacing: .1em; text-transform: uppercase; text-underline-offset: 6px; text-decoration-thickness: 2px; text-decoration-color: var(--red); }
+  .squad a:hover { color: #fff; text-decoration-color: #fff; }
+
+  /* The game */
+  .game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+  .rules { display: grid; margin: 0; }
+  .rules div { display: grid; grid-template-columns: minmax(150px, .5fr) 1fr; gap: 20px; padding: 20px 0; border-top: 1px solid var(--line); }
+  .rules div:last-child { border-bottom: 1px solid var(--line); }
+  .rules dt { font: 800 1.6rem/1 var(--display); text-transform: uppercase; }
+  .rules dd { margin: 0; color: #D5D9D3; }
+  .playbook { margin: 0; background: #0F1A13; border: 1px solid var(--line); padding: 18px; }
+  .playbook svg { width: 100%; height: auto; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 14px; font: 600 .85rem/1.2 var(--label); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .legend b { color: var(--chalk); font-weight: 700; }
+  .legend .r { color: var(--red); }
+
+  /* Coaches */
+  .coach-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+  .coach-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .creds { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .creds li { padding: 12px 0; border-top: 1px solid var(--line); font: 700 1.2rem/1.2 var(--label); letter-spacing: .04em; text-transform: uppercase; }
+  .safe { display: flex; flex-wrap: wrap; gap: 10px; }
+  .safe span { padding: 9px 14px; background: var(--chalk); color: var(--ink); font: 700 .9rem/1 var(--label); letter-spacing: .1em; text-transform: uppercase; }
+
+  /* Training */
+  .train-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: start; }
+  .fixtures { list-style: none; margin: 0 0 28px; padding: 0; }
+  .fixtures li { display: grid; grid-template-columns: 96px 1fr auto; gap: 18px; align-items: baseline; padding: 20px 0; border-top: 1px solid var(--line); }
+  .fixtures li:last-child { border-bottom: 1px solid var(--line); }
+  .fixtures .day { font: 900 2.6rem/.9 var(--display); color: var(--red); text-transform: uppercase; }
+  .fixtures strong { display: block; font: 800 1.5rem/1 var(--display); text-transform: uppercase; }
+  .fixtures span { color: var(--muted); font-size: .95rem; }
+  .fixtures .len { font: 700 .95rem/1 var(--label); letter-spacing: .12em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+  .kit { display: grid; gap: 10px; margin-top: 28px; }
+  .kit ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .kit li { padding: 9px 14px; border: 1px solid var(--line); background: var(--ink-2); font: 600 1rem/1 var(--label); letter-spacing: .08em; text-transform: uppercase; }
+  .train-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+  /* Press */
+  .press { border-block: 1px solid var(--line); background: var(--ink-2); }
+  .press-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 40px; padding-block: 34px; }
+  .press-inner p { font: 700 clamp(1.3rem, 2.2vw, 1.8rem)/1.15 var(--display); text-transform: uppercase; max-width: 44ch; }
+  .press-inner p em { font-style: normal; color: var(--red); }
+
+  /* Taster form */
+  .taster-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 88px); align-items: start; }
+  .direct { display: grid; gap: 22px; margin-top: 32px; }
+  .direct div { display: grid; gap: 6px; }
+  .direct a { font: 700 1.3rem/1.2 var(--label); letter-spacing: .03em; text-decoration-color: var(--red); text-underline-offset: 5px; }
+  .direct .socials { display: flex; gap: 22px; }
+  form { display: grid; gap: 18px; padding: clamp(22px, 3vw, 36px); background: var(--ink-2); border: 1px solid var(--line); border-top: 4px solid var(--red); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .field { display: grid; gap: 8px; }
+  .field label { font: 700 .88rem/1 var(--label); letter-spacing: .14em; text-transform: uppercase; color: #CDD2CC; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 13px 14px; border: 1px solid #34403A; border-radius: 0;
+    background: var(--ink); color: var(--chalk); font: 400 1rem/1.4 var(--body);
+  }
+  .field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--chalk) 50%), linear-gradient(135deg, var(--chalk) 50%, transparent 50%); background-position: calc(100% - 20px) 55%, calc(100% - 14px) 55%; background-size: 6px 6px; background-repeat: no-repeat; }
+  .field textarea { min-height: 120px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(227,38,46,.25); }
+  .form-note { color: var(--muted); font-size: .92rem; }
+  form .btn { justify-self: start; }
+
+  /* Footer */
+  .foot { border-top: 1px solid var(--line); }
+  .foot-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding-block: 32px; color: var(--muted); font-size: .95rem; }
+  .foot-inner nav { display: flex; gap: 22px; }
+  .foot-inner a { font: 600 .95rem/1 var(--label); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: #CDD2CC; }
+  .foot-inner a:hover { color: var(--chalk); }
+
+  @media (max-width: 1000px) {
+    .nav-links { display: none; }
+    .hero-inner, .club-grid, .honours-grid, .game-grid, .coach-grid, .train-grid, .taster-grid { grid-template-columns: 1fr; }
+    .hero-crest { order: -1; max-width: 520px; margin: 0 auto; }
+    .next { position: static; }
+    .squads { grid-template-columns: 1fr; }
+    .squad, .squad:first-child { border-left: 0; padding: 28px 0; border-top: 2px dashed rgba(242,241,236,.4); }
+    .squad:first-child { border-top: 0; padding-top: 0; }
+  }
+  @media (max-width: 600px) {
+    .nav .btn { display: none; }
+    .facts { grid-template-columns: repeat(3, 1fr); }
+    .facts div { padding-right: 12px; margin-right: 12px; }
+    .facts dt { font-size: 1.9rem; }
+    .row { grid-template-columns: 1fr; }
+    .rules div { grid-template-columns: 1fr; gap: 6px; }
+    .fixtures li { grid-template-columns: 72px 1fr; }
+    .fixtures .len { grid-column: 2; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .ribbon-track { animation: none; width: auto; }
+    .ribbon ul { flex-wrap: wrap; }
+    .ribbon ul[aria-hidden] { display: none; }
+    .btn:hover { transform: none; }
+  }
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Simplified bat-apple logo -->
-                    <circle cx="50" cy="50" r="40" fill="currentColor" opacity="0.2"/>
-                    <path d="M 50 10 Q 70 20 75 50 Q 70 80 50 90 Q 30 80 25 50 Q 30 20 50 10 Z" fill="#C1272D"/>
-                    <path d="M 35 40 Q 30 35 25 40 Q 20 45 25 50 Q 30 48 35 45 Z" fill="#1a3a52"/>
-                    <path d="M 65 40 Q 70 35 75 40 Q 80 45 75 50 Q 70 48 65 45 Z" fill="#1a3a52"/>
-                </svg>
-                Fruit Bats
-            </a>
-            <div style="display: flex; gap: 3rem; align-items: center;">
-                <a href="#teams">Teams</a>
-                <a href="#coaches">Coaches</a>
-                <a href="#join">Get Involved</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="social-links">
-                <a href="https://www.facebook.com/FruitBatsFlagFootball/" target="_blank" title="Facebook">f</a>
-                <a href="https://www.instagram.com/fruitbatsflagfootball/" target="_blank" title="Instagram">@</a>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Unleash Your <span class="accent-text">Potential</span></h1>
-            <p class="tagline">Flag Football Excellence in West London</p>
-            <p>Join the Fruit Bats, a championship-winning flag football club dedicated to developing young athletes. Multiple national titles. Elite coaching. Zero experience required.</p>
-            <div class="cta-group">
-                <a href="#join" class="cta-button cta-primary">Join a Team</a>
-                <a href="#teams" class="cta-button cta-secondary">Explore Teams</a>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <svg width="100%" height="100%" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px;">
-                <!-- Stadium background glow -->
-                <circle cx="150" cy="150" r="140" fill="url(#stadiumGradient)" opacity="0.3"/>
-                <!-- Main apple/bat logo -->
-                <defs>
-                    <linearGradient id="stadiumGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#C1272D;stop-opacity:0.3" />
-                        <stop offset="100%" style="stop-color:#1a3a52;stop-opacity:0.3" />
-                    </linearGradient>
-                </defs>
-                <!-- Bat wings left -->
-                <path d="M 100 120 Q 70 100 60 140 Q 70 150 100 140 Z" fill="#1a3a52" stroke="#1a3a52" stroke-width="2"/>
-                <path d="M 95 135 Q 65 155 70 190 Q 80 175 95 165 Z" fill="#1a3a52" stroke="#1a3a52" stroke-width="2"/>
-                <!-- Bat wings right -->
-                <path d="M 200 120 Q 230 100 240 140 Q 230 150 200 140 Z" fill="#1a3a52" stroke="#1a3a52" stroke-width="2"/>
-                <path d="M 205 135 Q 235 155 230 190 Q 220 175 205 165 Z" fill="#1a3a52" stroke="#1a3a52" stroke-width="2"/>
-                <!-- Apple body -->
-                <circle cx="150" cy="160" r="65" fill="#C1272D" stroke="#C1272D" stroke-width="2"/>
-                <!-- Apple top stem -->
-                <rect x="145" y="85" width="10" height="30" fill="#6B4423"/>
-                <!-- Bat face details -->
-                <circle cx="135" cy="155" r="8" fill="#1a3a52" opacity="0.5"/>
-                <circle cx="165" cy="155" r="8" fill="#1a3a52" opacity="0.5"/>
-                <path d="M 150 170 L 145 185 L 155 185 Z" fill="#1a3a52"/>
-                <!-- Football accent -->
-                <ellipse cx="220" cy="220" rx="25" ry="18" fill="#8B6F47" opacity="0.6" transform="rotate(25 220 220)"/>
-                <line x1="200" y1="220" x2="240" y2="220" stroke="white" stroke-width="1" opacity="0.4"/>
-            </svg>
-        </div>
-    </section>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Fruit Bats Football home">
+      <img src="assets/crest-192.jpg" alt="" width="44" height="44">
+      <span class="brand-name">Fruit Bats<small>Flag Football · Ealing</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#squads">Squads</a>
+      <a href="#honours">Honours</a>
+      <a href="#game">The game</a>
+      <a href="#coaches">Coaches</a>
+      <a href="#train">Training</a>
+    </nav>
+    <a class="btn btn-red" href="#taster">Book a free taster</a>
+  </div>
+</header>
 
-    <!-- Success Section -->
-    <section class="success-section" id="achievements">
-        <div class="section-header">
-            <h2>Championship Pedigree</h2>
-        </div>
-        <div class="achievements">
-            <div class="achievement-card" style="border-left-color: #C1272D;">
-                <h3>🏆 National Champions</h3>
-                <p>Reigning British National Champions and British Schools Champions in flag football.</p>
-            </div>
-            <div class="achievement-card" style="border-left-color: #00A0DF;">
-                <h3>🌍 International Representation</h3>
-                <p>Players representing Great Britain at the NFL Pro-Bowl and international competitions.</p>
-            </div>
-            <div class="achievement-card" style="border-left-color: #C1272D;">
-                <h3>🎖️ 2024 Success</h3>
-                <p>U11s undefeated, finishing 1st in the UK. U14s won three tournaments with elite placement.</p>
-            </div>
-            <div class="achievement-card" style="border-left-color: #00A0DF;">
-                <h3>📚 Proven Coaching</h3>
-                <p>Elite coaching team with international experience, DBS checked and fully safeguarding trained.</p>
-            </div>
-        </div>
-    </section>
+<main id="top">
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="section-header">
-            <h2>Who We Are</h2>
-            <p class="section-intro">The Fruit Bats represent excellence in youth flag football development.</p>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="label label-red">Youth flag football · Ealing, West London</p>
+        <h1>
+          <span class="line">Reigning British</span>
+          <span class="line red">National Champions.</span>
+          <span class="line">First session free.</span>
+        </h1>
+        <p class="lede">The Fruit Bats teach girls and boys aged 9 to 17 the non-contact game of American football, from their first catch all the way to a Great Britain shirt.</p>
+        <div class="actions">
+          <a class="btn btn-red" href="#taster">Book a free taster</a>
+          <a class="btn btn-ghost" href="#squads">Find your squad</a>
         </div>
-        <div class="about-grid">
-            <div class="about-content">
-                <h3>Built on Passion</h3>
-                <p>Founded by experienced American Football players, the Fruit Bats combine professional-level coaching with a focus on youth development and fun.</p>
-                <p>We welcome players of all experience levels. Whether you're looking to play competitively or just learn the game, there's a place for you.</p>
-                <h3 style="margin-top: 2rem;">Award-Winning Program</h3>
-                <p>Multiple national championships. International representation. Elite coaching. That's the Fruit Bats difference.</p>
-            </div>
-            <div class="about-visual">
-                <div style="text-align: center;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">⚡🦇🏈</div>
-                    <p>Where Passion Meets Excellence</p>
-                </div>
-            </div>
+        <dl class="facts">
+          <div><dt>5v5</dt><dd>Players a side</dd></div>
+          <div><dt>20 min</dt><dd>Per match</dd></div>
+          <div><dt>0</dt><dd>Tackles. Pull the flag</dd></div>
+        </dl>
+      </div>
+      <figure class="hero-crest">
+        <img src="assets/crest-hero.jpg" alt="The Fruit Bats crest: a snarling bat gripping a red apple, above a floodlit football pitch" width="1076" height="830">
+      </figure>
+    </div>
+  </section>
+
+  <div class="ribbon" role="region" aria-label="Club honours">
+    <div class="ribbon-track">
+      <ul>
+        <li>British National Champions</li>
+        <li>British Schools Champions</li>
+        <li>UK Bears-Jets NFL Flag Champions</li>
+        <li>U11s unbeaten in 2024</li>
+        <li>Team UK at the NFL Pro Bowl</li>
+        <li>Tottenham Hotspur Stadium vs Europe’s best</li>
+      </ul>
+      <ul aria-hidden="true">
+        <li>British National Champions</li>
+        <li>British Schools Champions</li>
+        <li>UK Bears-Jets NFL Flag Champions</li>
+        <li>U11s unbeaten in 2024</li>
+        <li>Team UK at the NFL Pro Bowl</li>
+        <li>Tottenham Hotspur Stadium vs Europe’s best</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="block" id="club">
+    <div class="wrap club-grid">
+      <figure class="club-photo">
+        <img src="assets/who.jpg" alt="A Fruit Bats player in a flag belt holds the ball ready to pass" loading="lazy">
+        <figcaption>Eyes up, ball high. A Bats player lines up a pass.</figcaption>
+      </figure>
+      <div class="club-copy">
+        <p class="label">The club</p>
+        <h2 class="h2">Started by players.<br>Built for young athletes.</h2>
+        <div class="prose">
+          <p>The Fruit Bats were set up by experienced American football players who wanted to teach young people the game and help them grow as athletes and as people.</p>
+          <p>We run <strong>U11, U14 and U17 squads</strong>, and every one of them welcomes girls and boys. You don’t need experience or equipment. You just need to be willing to work hard and learn.</p>
+          <p>We’ve won multiple national championships and have players representing Great Britain.</p>
         </div>
-    </section>
+        <p class="pull">Play for fun or play for GB. There’s a place for you at the Bats.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Teams Section -->
-    <section id="teams">
-        <div class="section-header">
-            <h2>Our Teams</h2>
-            <p class="section-intro">Three divisions welcoming girls and boys of all skill levels.</p>
+  <figure class="band">
+    <img src="assets/bats-sm.jpg" alt="Fruit Bats players in red kit run down a line of parents and coaches giving high-fives" loading="lazy">
+    <figcaption><span>Every game ends in a <span class="red" style="display:inline;font:inherit">guard of honour</span>.</span></figcaption>
+  </figure>
+
+  <section class="block" id="honours">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Honours board</p>
+        <h2 class="h2">The titles we’re defending</h2>
+      </div>
+      <div class="honours-grid">
+        <ol class="board">
+          <li><h3>British National Champions</h3><p>The national flag football title</p><span class="chip chip-red">Reigning</span></li>
+          <li><h3>British Schools Champions</h3><p>The national schools competition</p><span class="chip chip-red">Reigning</span></li>
+          <li><h3>UK Bears-Jets NFL Flag Champions</h3><p>The NFL Flag competition in the UK</p><span class="chip chip-red">Reigning</span></li>
+          <li><h3>U11s: Unbeaten</h3><p>Undefeated all season, finishing 1st in the UK</p><span class="chip chip-chalk">2024</span></li>
+          <li><h3>U14s: Three tournament wins</h3><p>Three tournaments won, finishing 7th in the UK</p><span class="chip chip-chalk">2024</span></li>
+        </ol>
+        <aside class="next">
+          <img src="assets/cheque.jpg" alt="Fruit Bats players in red kit with a trophy behind a giant boarding pass reading Team UK, UK to USA, NFL Flag Championships" loading="lazy">
+          <p class="label label-red">Next chapter</p>
+          <h3>Team UK vs the rest of the world</h3>
+          <p>Bats teams will represent the UK at the NFL Pro Bowl against the rest of the world, and take the pitch at Tottenham Hotspur Stadium against the best of Europe.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="block astro" id="squads">
+    <div class="wrap">
+      <div class="head">
+        <p class="label" style="color:#fff">Squads</p>
+        <h2 class="h2">Find your squad</h2>
+        <p>Three age groups, each open to girls and boys. The number on the shirt is the age limit.</p>
+      </div>
+      <div class="squads">
+        <article class="squad">
+          <div class="shirt" aria-hidden="true"><span class="u">U</span><span class="n">11</span></div>
+          <h3>Under 11s</h3>
+          <p class="ages">Ages 9, 10, 11</p>
+          <p>Where it starts: catching, running routes and pulling flags. The 2024 squad went the whole season unbeaten.</p>
+          <a href="#taster" data-squad="U11">Book a U11 taster</a>
+        </article>
+        <article class="squad">
+          <div class="shirt" aria-hidden="true"><span class="u">U</span><span class="n">14</span></div>
+          <h3>Under 14s</h3>
+          <p class="ages">Ages 11, 12, 13, 14</p>
+          <p>More plays, more positions and proper tournament football. This squad won three tournaments in 2024.</p>
+          <a href="#taster" data-squad="U14">Book a U14 taster</a>
+        </article>
+        <article class="squad">
+          <div class="shirt" aria-hidden="true"><span class="u">U</span><span class="n">17</span></div>
+          <h3>Under 17s</h3>
+          <p class="ages">Ages 15, 16, 17</p>
+          <p>The top of the pathway, for players chasing national titles and a shot at Great Britain selection.</p>
+          <a href="#taster" data-squad="U17">Book a U17 taster</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="game">
+    <div class="wrap game-grid">
+      <div>
+        <div class="head">
+          <p class="label">The game</p>
+          <h2 class="h2">Flag football in sixty seconds</h2>
         </div>
-        <div class="teams-grid">
-            <div class="team-card">
-                <div class="team-header">
-                    <h3>U11s</h3>
-                    <p class="age-group">Ages 9, 10, 11</p>
-                </div>
-                <div class="team-body">
-                    <p>Our foundational team focuses on developing fundamental skills, building confidence, and fostering a love for the game.</p>
-                    <p><strong>2024:</strong> Undefeated season. UK Champions.</p>
-                    <div class="team-cta">
-                        <a href="#join">Try a session →</a>
-                    </div>
-                </div>
-            </div>
+        <dl class="rules">
+          <div><dt>No tackling</dt><dd>Every player wears a belt with flags. You stop the ball carrier by pulling one off.</dd></div>
+          <div><dt>5-a-side</dt><dd>Only five on each team, so everyone gets the ball.</dd></div>
+          <div><dt>20 minutes</dt><dd>Matches are short and fast, so a tournament day packs in plenty of football.</dd></div>
+          <div><dt>Kit</dt><dd>Shorts, a training T-shirt and astro boots. No pads, no helmets.</dd></div>
+        </dl>
+      </div>
+      <figure class="playbook">
+        <svg viewBox="0 0 420 290" role="img" aria-labelledby="pb-title">
+          <title id="pb-title">A five-a-side flag football play: five attackers run routes past five defenders</title>
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M0 0L10 5L0 10z" fill="#E3262E"/>
+            </marker>
+          </defs>
+          <rect x="0" y="0" width="420" height="290" fill="#0F1A13"/>
+          <g stroke="#F2F1EC" stroke-opacity=".12" stroke-width="1">
+            <line x1="0" y1="40" x2="420" y2="40"/><line x1="0" y1="100" x2="420" y2="100"/>
+            <line x1="0" y1="160" x2="420" y2="160"/><line x1="0" y1="220" x2="420" y2="220"/>
+            <line x1="0" y1="280" x2="420" y2="280"/>
+          </g>
+          <line x1="0" y1="180" x2="420" y2="180" stroke="#F2F1EC" stroke-opacity=".55" stroke-width="1.5" stroke-dasharray="6 6"/>
+          <text x="12" y="172" fill="#A3ADA6" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">SCRIMMAGE</text>
+          <g fill="none" stroke="#E3262E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)">
+            <path d="M60 180 L60 52"/>
+            <path d="M145 186 L145 150 L232 92"/>
+            <path d="M362 180 L362 96 Q362 82 348 92"/>
+            <path d="M210 180 L210 136 L292 136"/>
+          </g>
+          <g fill="#0F1A13" stroke="#F2F1EC" stroke-width="2.5">
+            <circle cx="60" cy="194" r="11"/><circle cx="145" cy="198" r="11"/>
+            <circle cx="210" cy="194" r="11"/><circle cx="210" cy="244" r="11"/>
+            <circle cx="362" cy="194" r="11"/>
+          </g>
+          <g stroke="#F2F1EC" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round">
+            <path d="M68 118l14 14M82 118l-14 14"/><path d="M160 116l14 14M174 116l-14 14"/>
+            <path d="M246 112l14 14M260 112l-14 14"/><path d="M336 118l14 14M350 118l-14 14"/>
+            <path d="M200 58l14 14M214 58l-14 14"/>
+          </g>
+          <text x="210" y="274" text-anchor="middle" fill="#F2F1EC" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">QB</text>
+        </svg>
+        <figcaption class="legend">
+          <span><b>O</b> Attack</span><span><b>X</b> Defence</span><span class="r">Red: running routes</span><span>Pull a flag to make the tackle</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
 
-            <div class="team-card">
-                <div class="team-header">
-                    <h3>U14s</h3>
-                    <p class="age-group">Ages 12, 13, 14</p>
-                </div>
-                <div class="team-body">
-                    <p>Our competitive development team competes at national level with advanced tactics and elite coaching.</p>
-                    <p><strong>2024:</strong> Three tournament wins. Elite placement.</p>
-                    <div class="team-cta">
-                        <a href="#join">Try a session →</a>
-                    </div>
-                </div>
-            </div>
+  <section class="block" id="coaches" style="padding-top:0">
+    <div class="wrap coach-grid">
+      <figure style="margin:0">
+        <img src="assets/spurs.jpg" alt="Fruit Bats coaches and players in club shirts pitchside at a floodlit NFL game in London" loading="lazy">
+        <p class="cap">Pitchside with the squad at an NFL game in London.</p>
+      </figure>
+      <div style="display:grid;gap:26px">
+        <p class="label">The coaches</p>
+        <h2 class="h2">Coaches who’ve worn the shirt</h2>
+        <p class="prose">Our coaching team keeps growing. They care about helping young people reach their potential and building the confidence and skills that only sport can give.</p>
+        <ul class="creds">
+          <li>Represented Great Britain and England</li>
+          <li>Won European and national championships</li>
+          <li>Captained league-winning teams</li>
+          <li>Coached rugby, athletics and American football to a high standard</li>
+          <li>More than 20 years playing American football</li>
+        </ul>
+        <div class="safe"><span>DBS checked</span><span>NSPCC Safeguarding trained</span></div>
+      </div>
+    </div>
+  </section>
 
-            <div class="team-card">
-                <div class="team-header">
-                    <h3>U17s</h3>
-                    <p class="age-group">Ages 15, 16, 17</p>
-                </div>
-                <div class="team-body">
-                    <p>Our elite team competes at the highest level nationally and internationally, with players representing Great Britain.</p>
-                    <p><strong>2024:</strong> International representation. Pro-Bowl selection.</p>
-                    <div class="team-cta">
-                        <a href="#join">Try a session →</a>
-                    </div>
-                </div>
-            </div>
+  <section class="press" aria-label="Press">
+    <div class="wrap press-inner">
+      <p><em>The Guardian, August 2024:</em> on how flag football is rapidly catching on in the UK</p>
+      <a class="btn btn-ghost" href="https://www.theguardian.com/education/article/2024/aug/18/flag-football-rapidly-catching-on-uk" target="_blank" rel="noopener">Read the article</a>
+    </div>
+  </section>
+
+  <section class="block" id="train">
+    <div class="wrap train-grid">
+      <div>
+        <div class="head">
+          <p class="label">Training</p>
+          <h2 class="h2">Twice a week in Ealing</h2>
+          <p>Sessions teach you every skill you need to enjoy flag football, whether it’s your first time or you’re chasing a title.</p>
         </div>
-    </section>
-
-    <!-- Coaches Section -->
-    <section id="coaches">
-        <div class="section-header">
-            <h2>Our Coaches</h2>
-            <p class="section-intro">Elite, experienced, and fully committed to your development.</p>
+        <ul class="fixtures">
+          <li><span class="day">Tue</span><div><strong>Evening session</strong><span>Ealing, West London</span></div><span class="len">60 or 90 min</span></li>
+          <li><span class="day">Sat</span><div><strong>Afternoon session</strong><span>Ealing, West London</span></div><span class="len">60 or 90 min</span></li>
+        </ul>
+        <div class="kit">
+          <p class="label">What to bring</p>
+          <ul><li>Shorts</li><li>Training T-shirt</li><li>Astro boots</li></ul>
         </div>
-        <div class="about-grid" style="margin-top: 3rem;">
-            <div class="about-content">
-                <h3>Proven Expertise</h3>
-                <p>Our coaching team combines international playing experience with a deep commitment to athlete development.</p>
-                <p><strong>Combined experience:</strong></p>
-                <ul style="list-style: none; margin-top: 1rem;">
-                    <li style="margin-bottom: 0.5rem;">✓ Great Britain & England representation</li>
-                    <li style="margin-bottom: 0.5rem;">✓ European and World Championship wins</li>
-                    <li style="margin-bottom: 0.5rem;">✓ National title coaching success</li>
-                    <li style="margin-bottom: 0.5rem;">✓ DBS checked & safeguarding trained</li>
-                </ul>
-                <p style="margin-top: 2rem;"><strong>Our philosophy:</strong> We develop not just players, but confident, disciplined young athletes prepared for success at any level.</p>
-            </div>
-            <div class="about-visual">
-                <div style="text-align: center;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">👥</div>
-                    <p>Professional Coaches<br>Personal Development</p>
-                </div>
-            </div>
+      </div>
+      <figure class="train-photo" style="margin:0">
+        <img src="assets/boyteams.jpg" alt="A Fruit Bats squad of girls and boys in red, black and yellow kit on the astro after training" loading="lazy">
+        <p class="cap">A Bats squad after training.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="taster" style="padding-top:0">
+    <div class="wrap taster-grid">
+      <div>
+        <div class="head" style="margin-bottom:0">
+          <p class="label label-red">Your first session is free</p>
+          <h2 class="h2">Book a free taster</h2>
+          <p>Tell us who’s playing, and a coach will reply with the next session time and where to find us.</p>
         </div>
-    </section>
-
-    <!-- Join Section -->
-    <section id="join">
-        <div class="section-header">
-            <h2>Get Involved</h2>
-            <p class="section-intro">Start your flag football journey with the Fruit Bats.</p>
+        <div class="direct">
+          <div><p class="label">Email the coaches</p><a href="mailto:FruitBatsFootball@gmail.com">FruitBatsFootball@gmail.com</a></div>
+          <div><p class="label">Follow the Bats</p>
+            <p class="socials"><a href="https://www.instagram.com/fruitbatsflagfootball/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/FruitBatsFlagFootball/" target="_blank" rel="noopener">Facebook</a></p>
+          </div>
         </div>
-        <div class="about-grid" style="margin-top: 3rem;">
-            <div class="about-content">
-                <h3>What's Involved?</h3>
-                <p><strong>When:</strong> Tuesday evenings and Saturday afternoons in Ealing, West London</p>
-                <p><strong>Session Length:</strong> 60 or 90 minutes of coaching and competitive play</p>
-                <p><strong>What You Need:</strong> Shorts, training T-shirt, and astro boots. That's it.</p>
-                <h3 style="margin-top: 2rem;">Why Flag Football?</h3>
-                <p>Non-contact, inclusive, and incredibly fun. Tackle by tag removal, not impact. Perfect for developing skills, confidence, and teamwork.</p>
-                <p><strong>No experience necessary.</strong> Come try a free taster session with no obligation.</p>
-            </div>
-            <div class="about-visual">
-                <div style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏟️</div>
-                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;"><strong>Ready to play?</strong></p>
-                    <a href="#contact" class="cta-button cta-primary" style="margin-bottom: 1rem;">Contact Us</a>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Or email: FruitBatsFootball@gmail.com</p>
-                </div>
-            </div>
+      </div>
+      <form id="taster-form">
+        <div class="row">
+          <div class="field"><label for="f-name">Parent or guardian</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div class="section-header">
-            <h2>Contact the Bats</h2>
-            <p class="section-intro">Questions? Want to try a free session? Let's talk.</p>
+        <div class="row">
+          <div class="field"><label for="f-player">Player’s first name</label><input id="f-player" name="player"></div>
+          <div class="field">
+            <label for="f-squad">Squad</label>
+            <select id="f-squad" name="squad">
+              <option value="U11">U11: ages 9 to 11</option>
+              <option value="U14">U14: ages 11 to 14</option>
+              <option value="U17">U17: ages 15 to 17</option>
+              <option value="Not sure">Not sure yet</option>
+            </select>
+          </div>
         </div>
-        <div class="contact-content">
-            <div class="contact-info">
-                <h3>Reach Out</h3>
-                <p><strong>Email</strong><br>
-                <a href="mailto:FruitBatsFootball@gmail.com">FruitBatsFootball@gmail.com</a></p>
-                <p style="margin-top: 1.5rem;"><strong>Location</strong><br>
-                Ealing, West London, UK</p>
-                <p style="margin-top: 1.5rem;"><strong>Training Times</strong><br>
-                Tuesday evenings<br>
-                Saturday afternoons</p>
-                <p style="margin-top: 1.5rem;"><strong>Follow Us</strong><br>
-                <a href="https://www.facebook.com/FruitBatsFlagFootball/" target="_blank">Facebook</a> | <a href="https://www.instagram.com/fruitbatsflagfootball/" target="_blank">Instagram</a></p>
-            </div>
-            <form class="contact-form" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="age-group">Interested Age Group</label>
-                    <select id="age-group" name="age-group" style="padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 4px; font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text-primary);">
-                        <option>Select age group...</option>
-                        <option>U11s (9-11)</option>
-                        <option>U14s (12-14)</option>
-                        <option>U17s (15-17)</option>
-                        <option>Just browsing</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="cta-button cta-primary" style="align-self: flex-start;">Send Message</button>
-            </form>
-        </div>
-    </section>
+        <div class="field"><label for="f-msg">Anything we should know?</label><textarea id="f-msg" name="message" placeholder="Previous sports, which session suits you, questions…"></textarea></div>
+        <button class="btn btn-red" type="submit">Email the coaches</button>
+        <p class="form-note">Opens your email app with this message ready to send to FruitBatsFootball@gmail.com.</p>
+      </form>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Fruit Bats Football. All rights reserved.</p>
-        <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">Built for champions. Built for everyone.</p>
-    </footer>
+</main>
 
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const ageGroup = formData.get('age-group');
-            const message = formData.get('message');
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top" style="margin:0">
+      <img src="assets/crest-192.jpg" alt="" width="44" height="44">
+      <span class="brand-name">Fruit Bats<small>Flag Football · Ealing</small></span>
+    </a>
+    <p>© 2026 Fruit Bats Football · Ealing, West London</p>
+    <nav aria-label="Social">
+      <a href="https://www.instagram.com/fruitbatsflagfootball/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/FruitBatsFlagFootball/" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+  </div>
+</footer>
 
-            // Create mailto link with form data
-            const mailtoLink = `mailto:FruitBatsFootball@gmail.com?subject=New Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(
-                `Name: ${name}\nEmail: ${email}\nAge Group: ${ageGroup}\nMessage: ${message}`
-            )}`;
+<script>
+  const squadSelect = document.getElementById('f-squad');
+  document.querySelectorAll('[data-squad]').forEach(link => {
+    link.addEventListener('click', () => { squadSelect.value = link.dataset.squad; });
+  });
 
-            window.location.href = mailtoLink;
-        }
-    </script>
+  document.getElementById('taster-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const d = new FormData(event.target);
+    const player = d.get('player') ? ` for ${d.get('player')}` : '';
+    const subject = `Free taster session${player} (${d.get('squad')})`;
+    const body = [
+      `Parent or guardian: ${d.get('name')}`,
+      `Email: ${d.get('email')}`,
+      `Player: ${d.get('player') || 'not given'}`,
+      `Squad: ${d.get('squad')}`,
+      '',
+      d.get('message') || ''
+    ].join('\n');
+    window.location.href = `mailto:FruitBatsFootball@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
 </body>
 </html>

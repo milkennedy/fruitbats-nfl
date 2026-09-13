@@ -3,57 +3,31 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
+const ROOT = __dirname;
+const PUBLIC = new Set(['/index.html']);
+const TYPES = {
+  '.html': 'text/html; charset=utf-8',
+  '.jpg': 'image/jpeg',
+  '.png': 'image/png',
+  '.svg': 'image/svg+xml',
+};
 
-const server = http.createServer((req, res) => {
-  // Serve index.html for all routes
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+http.createServer((req, res) => {
+  const urlPath = decodeURIComponent(req.url.split('?')[0]);
+  const wanted = urlPath === '/' ? '/index.html' : urlPath;
+  const isAsset = wanted.startsWith('/assets/') && !wanted.includes('..');
+  const file = path.join(ROOT, isAsset || PUBLIC.has(wanted) ? wanted : '/index.html');
 
-  // Prevent directory traversal
-  filePath = path.normalize(filePath);
-  if (!filePath.startsWith(__dirname)) {
-    filePath = path.join(__dirname, 'index.html');
-  }
-
-  const extname = String(path.extname(filePath)).toLowerCase();
-  const mimeTypes = {
-    '.html': 'text/html',
-    '.js': 'text/javascript',
-    '.css': 'text/css',
-    '.json': 'application/json',
-    '.png': 'image/png',
-    '.jpg': 'image/jpg',
-    '.gif': 'image/gif',
-    '.svg': 'image/svg+xml',
-    '.wav': 'audio/wav',
-    '.mp4': 'video/mp4',
-    '.woff': 'application/font-woff',
-    '.ttf': 'application/font-ttf',
-    '.eot': 'application/vnd.ms-fontobject',
-    '.otf': 'application/font-otf',
-    '.wasm': 'application/wasm'
-  };
-
-  const contentType = mimeTypes[extname] || 'application/octet-stream';
-
-  fs.readFile(filePath, (error, content) => {
-    if (error) {
-      if (error.code === 'ENOENT') {
-        // Serve index.html for 404s (SPA routing)
-        fs.readFile(path.join(__dirname, 'index.html'), (err, data) => {
-          res.writeHead(200, { 'Content-Type': 'text/html' });
-          res.end(data, 'utf-8');
-        });
-      } else {
-        res.writeHead(500);
-        res.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
-      }
-    } else {
-      res.writeHead(200, { 'Content-Type': contentType });
-      res.end(content, 'utf-8');
+  fs.readFile(file, (err, body) => {
+    if (err) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      return res.end('Not found');
     }
+    const ext = path.extname(file);
+    res.writeHead(200, {
+      'Content-Type': TYPES[ext] || 'application/octet-stream',
+      'Cache-Control': isAsset ? 'public, max-age=604800' : 'no-cache',
+    });
+    res.end(body);
   });
-});
-
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+}).listen(PORT, () => console.log(`Fruit Bats site on :${PORT}`));
