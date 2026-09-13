@@ -1,0 +1,13 @@
+{
+  "name": "fruitbats-nfl",
+  "version": "1.0.0",
+  "description": "Fruit Bats Flag Football Club website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["football", "flag", "youth", "sports"],
+  "author": "Fruit Bats",
+  "license": "MIT"
+}
